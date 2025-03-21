@@ -17,9 +17,9 @@ pnpm test <number>
 
 ## Problems
 
-|                   LeetCode Problem                   |     Solution     |                    Difficulty                     |
-| :--------------------------------------------------: | :--------------: | :-----------------------------------------------: |
-| [1. Two Sum](https://leetcode.com/problems/two-sum/) | [1.ts](src/1.ts) | ![Easy](https://img.shields.io/badge/-Easy-green) |
+|                   LeetCode Problem                   |     Solution     |            Test             |                    Difficulty                     |
+| :--------------------------------------------------: | :--------------: | :-------------------------: | :-----------------------------------------------: |
+| [1. Two Sum](https://leetcode.com/problems/two-sum/) | [1.ts](src/1.ts) | [1.spec.ts](test/1.spec.ts) | ![Easy](https://img.shields.io/badge/-Easy-green) |
 
 ## License
 
