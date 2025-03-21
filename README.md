@@ -5,7 +5,7 @@ Personal solutions of LeetCode problems on TypeScript.
 ## Installation
 
 ```bash
-git clone <this repo>
+git clone git@github.com:rromanv/leetcode-ts.git
 pnpm install
 ```
 
