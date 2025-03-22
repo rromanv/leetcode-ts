@@ -8,4 +8,6 @@ test('s = "a)b(c)d" => "ab(c)d"', () => {
   expect(minRemoveToMakeValid('a)b(c)d')).toBe('ab(c)d')
 })
 
-test('s = "))((" => ""', () => {})
+test('s = "))((" => ""', () => {
+  expect(minRemoveToMakeValid('))((')).toBe('')
+})
