@@ -22,6 +22,7 @@ pnpm test <number>
 |                                   [1. Two Sum](https://leetcode.com/problems/two-sum/)                                   |    [1.ts](src/1.ts)    |    [1.spec.ts](test/1.spec.ts)    |                     ![Easy](https://img.shields.io/badge/-Easy-green)                      |
 |     [314. Binary Tree Vertical Order Traversal](https://leetcode.com/problems/binary-tree-vertical-order-traversal)      |  [314.ts](src/314.ts)  |  [314.spec.ts](test/314.spec.ts)  | ![MediumPremium](https://img.shields.io/badge/Premium-gold?label=Medium&labelColor=yellow) |
 |                  [408. Valid Word Abbreviation](https://leetcode.com/problems/valid-word-abbreviation)                   |  [408.ts](src/408.ts)  |  [408.spec.ts](test/408.spec.ts)  |   ![EasyPremium](https://img.shields.io/badge/Premium-gold?label=Easy&labelColor=green)    |
+|                  [543. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree)                   |  [543.ts](src/543.ts)  |  [543.spec.ts](test/543.spec.ts)  |                     ![Easy](https://img.shields.io/badge/-Easy-green)                      |
 | [1249. Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses) | [1249.ts](src/1249.ts) | [1249.spec.ts](test/1249.spec.ts) |                   ![Medium](https://img.shields.io/badge/-Medium-yellow)                   |
 
 ## License
