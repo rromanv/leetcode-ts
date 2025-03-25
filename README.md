@@ -30,6 +30,7 @@ pnpm test <number>
 |                                [680. Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii)                                 |  [680.ts](src/680.ts)  |  [680.spec.ts](test/680.spec.ts)  |                     ![Easy](https://img.shields.io/badge/-Easy-green)                      |
 |           [1249. Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses)           | [1249.ts](src/1249.ts) | [1249.spec.ts](test/1249.spec.ts) |                   ![Medium](https://img.shields.io/badge/-Medium-yellow)                   |
 | [1650. Lowest Common Ancestor of a Binary Search Tree III](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree-iii) | [1650.ts](src/1650.ts) | [1650.spec.ts](test/1650.spec.ts) | ![MediumPremium](https://img.shields.io/badge/Premium-gold?label=Medium&labelColor=yellow) |
+|                       [1762. Buildings With an Ocean View](https://leetcode.com/problems/buildings-with-an-ocean-view)                       | [1762.ts](src/1762.ts) | [1762.spec.ts](test/1762.spec.ts) | ![MediumPremium](https://img.shields.io/badge/Premium-gold?label=Medium&labelColor=yellow) |
 
 ## License
 
