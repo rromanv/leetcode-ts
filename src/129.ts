@@ -29,7 +29,7 @@ class TreeNode {
   }
 }
 
-function sumNumbers(root: TreeNode | null): number {
+function sumNumbers2(root: TreeNode | null): number {
   const dfs = (node: TreeNode | null, currentPath: number[], allPaths: number[][]) => {
     if (!node) return
     currentPath.push(node.val)
@@ -49,6 +49,23 @@ function sumNumbers(root: TreeNode | null): number {
   dfs(root, [], result)
 
   return result.reduce((sum, curr) => sum + Number(curr.join('')), 0)
+}
+
+function sumNumbers(root: TreeNode | null): number {
+  if (!root) return 0
+  const queue: [TreeNode, number][] = [[root, root.val]]
+  let total = 0
+
+  while (queue.length > 0) {
+    const [node, sum] = queue.shift()!
+
+    if (!node.left && !node.right) total += sum
+
+    if (node.left) queue.push([node.left, sum * 10 + node.left.val])
+    if (node.right) queue.push([node.right, sum * 10 + node.right.val])
+  }
+
+  return total
 }
 
 export { TreeNode, sumNumbers }
