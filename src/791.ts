@@ -1,3 +1,5 @@
+import { scheduler } from 'timers/promises'
+
 /**
  * 791. Custom Sort String
  * https://leetcode.com/problems/custom-sort-string
@@ -15,7 +17,7 @@
  * @param {string} s - The string to be sorted
  * @return {string} - The permuted string according to the custom order
  */
-function customSortString(order: string, s: string): string {
+function customSortString2(order: string, s: string): string {
   if (!s.length || !order.length) return s
 
   const orderMap = new Map<string, number>()
@@ -30,6 +32,27 @@ function customSortString(order: string, s: string): string {
       return aIndex - bIndex
     })
     .join('')
+}
+
+function customSortString(order: string, s: string): string {
+  if (!s.length || !order.length) return s
+
+  const sChars = new Map<string, number>()
+  for (const char of s) sChars.set(char, (sChars.get(char) ?? 0) + 1)
+
+  let result = ''
+  for (const char of order) {
+    if (sChars.has(char)) {
+      result += char.repeat(sChars.get(char)!)
+      sChars.delete(char)
+    }
+  }
+
+  for (const [char, count] of sChars) {
+    result += char.repeat(sChars.get(char)!)
+  }
+
+  return result
 }
 
 export { customSortString }
