@@ -7,8 +7,8 @@
  * return the values of the nodes you can see ordered from top to bottom.
  *
  * Algorithm: DFS
- * Time Complexity: To be determined
- * Space Complexity: To be determined
+ * Time Complexity: O(n) where n is the number of nodes in the tree
+ * Space Complexity: O(h) where h is the height of the tree
  *
  * @param {TreeNode | null} root - Root of the binary tree
  * @returns {number[]} - Values of nodes visible from the right side
