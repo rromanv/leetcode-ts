@@ -75,6 +75,7 @@ pnpm test <number>
 |                            [1539. Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/)                            | [1539.ts](src/1539.ts) | [1539.spec.ts](test/1539.spec.ts) |                     ![Easy](https://img.shields.io/badge/-Easy-green)                      |
 |     [1650. Lowest Common Ancestor of a Binary Search Tree III](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree-iii)      | [1650.ts](src/1650.ts) | [1650.spec.ts](test/1650.spec.ts) | ![MediumPremium](https://img.shields.io/badge/Premium-gold?label=Medium&labelColor=yellow) |
 |                           [1762. Buildings With an Ocean View](https://leetcode.com/problems/buildings-with-an-ocean-view)                            | [1762.ts](src/1762.ts) | [1762.spec.ts](test/1762.spec.ts) | ![MediumPremium](https://img.shields.io/badge/Premium-gold?label=Medium&labelColor=yellow) |
+|                              [1768. Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately/)                              | [1768.ts](src/1768.ts) | [1768.spec.ts](test/1768.spec.ts) |                     ![Easy](https://img.shields.io/badge/-Easy-green)                      |
 
 ## License
 
