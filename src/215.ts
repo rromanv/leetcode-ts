@@ -3,6 +3,10 @@
  * https://leetcode.com/problems/kth-largest-element-in-an-array
  * Medium
  * Can you solve it without sorting?
+ *
+ * Algorithm: Max Heap
+ * Time Complexity: O(n log n) for building heap, O(k log n) for k extractions
+ * Space Complexity: O(n) for the heap array
  */
 
 function findKthLargest(nums: number[], k: number): number {
