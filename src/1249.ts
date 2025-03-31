@@ -25,17 +25,23 @@ function minRemoveToMakeValid(s: string): string {
       parenthesesStack.pop()
     }
   }
+  const invalidIndices = new Set([...indicesToRemove, ...parenthesesStack])
 
-  const result = s.split('')
+  return s
+    .split('')
+    .filter((_, index) => !invalidIndices.has(index))
+    .join('')
 
-  indicesToRemove.push(...parenthesesStack)
+  // const result = s.split('')
 
-  while (indicesToRemove.length > 0) {
-    const index = indicesToRemove.pop()!
-    result.splice(index, 1)
-  }
+  // indicesToRemove.push(...parenthesesStack)
 
-  return result.join('')
+  // while (indicesToRemove.length > 0) {
+  //   const index = indicesToRemove.pop()!
+  //   result.splice(index, 1)
+  // }
+
+  // return result.join('')
 }
 
 export { minRemoveToMakeValid }
