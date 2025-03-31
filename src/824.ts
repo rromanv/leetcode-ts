@@ -6,7 +6,7 @@
  * @param sentence Input string containing the sentence to convert
  * @returns Modified sentence in Goat Latin
  */
-function toGoatLatin(sentence: string): string {
+function toGoatLatin2(sentence: string): string {
   if (!sentence.length) return ''
 
   const words = sentence.split(' ')
@@ -20,6 +20,21 @@ function toGoatLatin(sentence: string): string {
   }
 
   return words.join(' ')
+}
+
+function toGoatLatin(sentence: string): string {
+  if (!sentence.trim()) return ''
+
+  const isVowel = (char: string) => /^[aeiou]$/i.test(char)
+
+  return sentence
+    .split(' ')
+    .map((word, index) => {
+      const firstChar = word.charAt(0)
+      const base = isVowel(firstChar) ? word : word.substring(1) + firstChar
+      return base + 'ma' + 'a'.repeat(index + 1)
+    })
+    .join(' ')
 }
 
 export { toGoatLatin }
