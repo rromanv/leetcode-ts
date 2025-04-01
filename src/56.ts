@@ -38,7 +38,7 @@ function merge(intervals: number[][]): number[][] {
     activeInterval = interval
   }
 
-  if (activeInterval.length > 0) mergedIntervals.push(activeInterval)
+  mergedIntervals.push(activeInterval)
 
   return mergedIntervals
 }
