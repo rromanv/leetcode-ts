@@ -14,33 +14,33 @@
  * @return {number[][]} - Array of merged non-overlapping intervals
  */
 function merge(intervals: number[][]): number[][] {
-  if (!Array.isArray(intervals)) throw new Error('Please provide an array of intervals')
+  if (!intervals.length) return []
+  if (intervals.length === 1) return [intervals[0]]
 
-  const result = new Array<number[]>()
-  let current = new Array<number>()
+  const mergedIntervals = new Array<number[]>()
+  let activeInterval = intervals[0]
 
   const START = 0
   const END = 1
 
-  intervals.sort((a, b) => a[START] - b[START])
+  for (let index = 1; index < intervals.length; index++) {
+    const interval = intervals[index]
 
-  for (const interval of intervals) {
-    if (current.length === 0) {
-      current = [...interval]
+    if (interval[START] <= activeInterval[END]) {
+      activeInterval[START] = Math.min(activeInterval[START], interval[START])
+      activeInterval[END] = Math.max(activeInterval[END], interval[END])
+
       continue
     }
-    if (interval[START] <= current[END]) {
-      current[END] = Math.max(current[END], interval[END])
-      continue
-    }
-    result.push(current)
 
-    current = [...interval]
+    mergedIntervals.push(activeInterval)
+
+    activeInterval = interval
   }
 
-  if (current.length !== 0) result.push(current)
+  if (activeInterval.length > 0) mergedIntervals.push(activeInterval)
 
-  return result
+  return mergedIntervals
 }
 
 export { merge }
