@@ -30,4 +30,25 @@ function findPeakElement(nums: number[]): number {
   return 0
 }
 
+function findPeakElement2(nums: number[]): number {
+  if (!Array.isArray(nums) || nums.length === 0) {
+    throw new Error('Array must be provided')
+  }
+
+  let left = 0
+  let right = nums.length - 1
+
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2)
+
+    if (nums[mid] > nums[mid + 1]) {
+      right = mid
+    } else {
+      left = mid + 1
+    }
+  }
+
+  return left
+}
+
 export { findPeakElement }
