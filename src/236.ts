@@ -29,7 +29,7 @@ class TreeNode {
   }
 }
 
-function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+function lowestCommonAncestor2(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
   if (!root || !p || !q) throw new Error('Missing Parameters')
 
   const dfs = (node: TreeNode | null, looking: TreeNode, path: TreeNode[]): boolean => {
@@ -55,6 +55,21 @@ function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: Tree
   }
 
   return lca
+}
+
+function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+  if (root === null || root === p || root === q) {
+    return root
+  }
+
+  const leftSearch = lowestCommonAncestor(root.left, p, q)
+  const rightSearch = lowestCommonAncestor(root.right, p, q)
+
+  if (leftSearch && rightSearch) {
+    return root
+  }
+
+  return leftSearch || rightSearch
 }
 
 export { TreeNode, lowestCommonAncestor }
