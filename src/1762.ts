@@ -14,7 +14,7 @@ function findBuildings(heights: number[]): number[] {
     const currentBuilding = heights[index]
     if (currentBuilding > maxHeight) {
       maxHeight = currentBuilding
-      buildingsWithView.splice(0, 0, index)
+      buildingsWithView.unshift(index)
     }
   }
 
