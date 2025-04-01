@@ -14,9 +14,7 @@
  * @param {number} k - Target sum
  */
 function subarraySum(nums: number[], k: number): number {
-  if (!Array.isArray(nums)) throw new Error('First parameter must be an array')
-  if (typeof k !== 'number') throw new Error('Second parameter must be a number')
-  if (nums.length === 0) throw new Error('Array of integers "nums" should be provided')
+  if (!nums.length) return 0
 
   type Sum = number
   type Count = number
