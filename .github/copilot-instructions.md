@@ -12,10 +12,23 @@ This repository follows specific coding conventions and project structures. Plea
   - The function should be **exported at the end** of the file using `export { functionName };`.
   - ⚠️ **Important:** If Copilot suggests an implementation, please remove it and leave only the shell function.
 
-- **JSDoc Documentation:**
-  - Each function should start with a JSDoc comment.
-  - Follow the format used in the existing `@/1.ts` file.
-  - Ensure the JSDoc includes a brief description, parameter details, and return type.
+## JSDoc Documentation
+
+- Each function should start with a JSDoc comment.
+- Follow the format used in the existing `@/1.ts` file.
+- Ensure the JSDoc includes:
+  - Name of the problem in the <Number>. <Name> format
+  - Url of the problem on leetcode
+  - A line with the problem Difficulty Level
+  - A brief description of what the function is intended to solve.
+  - Add a section for **Algorithm**, **Time Complexity**, and **Space Complexity**.
+    - Indicate these as:  
+      `Algorithm: To be implemented`  
+      `Time Complexity: To be implemented`  
+      `Space Complexity: To be implemented`
+    - ⚠️ Do not write the actual solution or analysis at creation time — just placeholders.
+  - Parameter details (names and types).
+  - Return type.
 
 ## Testing Guidelines
 
