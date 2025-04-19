@@ -9,7 +9,8 @@ This repository follows specific coding conventions and project structures. Plea
   - Create a new TypeScript file in the `@/` folder (located in `src/`) with the format `<NUMBER>.ts`.
   - The `<NUMBER>` is a LeetCode problem/exercise number.
   - The file should contain only the function signature (shell function) **without implementation**.
-  - The function should be **exported at the end** of the file using `export { functionName };`.
+  - If problem requires a class like TreeNode, Node, or others, please implement the class after the shell function.
+  - The function should be **exported at the end** of the file using `export { functionName };`, including any needed class created on the file.
   - ⚠️ **Important:** If Copilot suggests an implementation, please remove it and leave only the shell function.
 
 ## JSDoc Documentation
@@ -45,6 +46,7 @@ This repository follows specific coding conventions and project structures. Plea
 
 - **README Table Update:**
   - Add an entry for the newly created function to the table in the `README.md` file.
+  - The entry should be at the correct ascending order of the problem number, example, problem 3 should go after problem 2 and before problem 4.
   - Follow the existing format for consistency.
   - It is important **not to implement** a solution, just the shell function.
   - ⚠️ **Reminder:** Ensure the function remains a shell with no implementation at this stage.
@@ -59,7 +61,7 @@ This repository follows specific coding conventions and project structures. Plea
 
 ## Optional: Teach Area — Step-by-Step Solution Guide
 
-> 🧩 _Use this only when you explicitly request to work through a problem step by step._
+> 🧩 _Use this only when you explicitly request to work through a problem step by step or if is asked for Help._
 > By default, contributors only need to create the shell function and tests.  
 > If you want to implement a solution together, follow this process:
 
@@ -103,7 +105,12 @@ This repository follows specific coding conventions and project structures. Plea
    - Refactor variable names, simplify logic, and ensure clarity.
 
 8. **Request Review**
+
    - Submit your implementation for review.
    - Be open to feedback for improvements!
+
+9. **Code Solution**
+   - Ask if a Code of the Solution need to be created, if it is affirmative please provide the solution.
+   - Even on Agent mode, the solution asked should be implemented **ONLY** on the chat window.
 
 > ✅ _Tip: Document your thought process in comments during the solution phase. It helps during review and personal learning._
