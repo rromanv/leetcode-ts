@@ -4,9 +4,9 @@
  * Difficulty: Easy
  * Checks if every diagonal from top-left to bottom-right has the same elements.
  *
- * Algorithm: To be implemented
- * Time Complexity: To be implemented
- * Space Complexity: To be implemented
+ * Algorithm: Iterate through the rows and columns.
+ * Time Complexity: O(N*M) where N are the rows, and M the columns.
+ * Space Complexity: O(1)
  *
  * @param {number[][]} matrix The input matrix.
  * @returns {boolean} True if the matrix is Toeplitz, false otherwise.
