@@ -1,8 +1,33 @@
-/*
+/**
  * 543. Diameter of Binary Tree
  * https://leetcode.com/problems/diameter-of-binary-tree
  * Easy
+ *
+ * Algorithm: DFS recursive
+ * Time complexity: O(N)
+ * Space complexity: O(H), where H is the height of the tree (due to recursion stack)
+ *
+ * @param {TreeNode | null} root - The root of the tree to evaluate.
+ * @returns {number} The diameter of the tree.
  */
+function diameterOfBinaryTree(root: TreeNode | null): number {
+  let maxDiameter = 0
+
+  const depth = (node: TreeNode | null): number => {
+    if (!node) return 0
+
+    const leftDepth = depth(node.left)
+    const rightDepth = depth(node.right)
+
+    maxDiameter = Math.max(maxDiameter, leftDepth + rightDepth)
+
+    return Math.max(leftDepth, rightDepth) + 1
+  }
+
+  depth(root)
+
+  return maxDiameter
+}
 
 class TreeNode {
   val: number
@@ -14,28 +39,4 @@ class TreeNode {
     this.right = right === undefined ? null : right
   }
 }
-
-function diameterOfBinaryTree(root: TreeNode | null): number {
-  if (!root) return 0
-
-  type Depth = number
-  type Diameter = number
-
-  const depthAndDiameter = (node: TreeNode | null): [Depth, Diameter] => {
-    if (!node) return [0, 0]
-
-    const [leftDepth, leftDiameter] = depthAndDiameter(node.left)
-    const [rightDepth, rightDiameter] = depthAndDiameter(node.right)
-
-    const currentDepth = Math.max(leftDepth, rightDepth) + 1
-    const currentDiameter = Math.max(leftDepth + rightDepth, leftDiameter, rightDiameter)
-
-    return [currentDepth, currentDiameter]
-  }
-
-  const [, maxDiameter] = depthAndDiameter(root)
-
-  return maxDiameter
-}
-
 export { TreeNode, diameterOfBinaryTree }
