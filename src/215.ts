@@ -5,8 +5,8 @@
  * Can you solve it without sorting?
  *
  * Algorithm: Max Heap
- * Time Complexity: O(n log n) for building heap, O(k log n) for k extractions
- * Space Complexity: O(n) for the heap array
+ * Time Complexity: O(N) for building heap, O(K log N) for K extractions
+ * Space Complexity: O(N) for the heap array
  */
 
 function findKthLargest(nums: number[], k: number): number {
