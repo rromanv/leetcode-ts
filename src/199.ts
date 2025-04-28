@@ -58,20 +58,14 @@ function rightSideView2(root: TreeNode | null): number[] {
 
 function rightSideView(root: TreeNode | null): number[] {
   if (!root) return []
-  const result = new Array<number>()
-  const queue = [root]
+  const result: number[] = []
+  const queue: [TreeNode, number][] = [[root, 0]]
 
   while (queue.length > 0) {
-    const levelSize = queue.length
-
-    for (let i = 0; i < levelSize; i++) {
-      const node = queue.shift()!
-
-      if (i === levelSize - 1) result.push(node.val)
-
-      if (node.left) queue.push(node.left)
-      if (node.right) queue.push(node.right)
-    }
+    const [node, level] = queue.shift()!
+    if (result.length === level) result.push(node.val)
+    node.right && queue.push([node.right, level + 1])
+    node.left && queue.push([node.left, level + 1])
   }
 
   return result
