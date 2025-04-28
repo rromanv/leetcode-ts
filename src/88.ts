@@ -7,8 +7,12 @@
  */
 
 function merge(nums1: number[], m: number, nums2: number[], n: number): void {
-  nums1.splice(m, nums1.length - m, ...nums2.slice(0, n))
-  nums1.sort((a, b) => a - b)
+  let write = m + n - 1
+  let index1 = m - 1
+  let index2 = n - 1
+  while (index2 >= 0) {
+    nums1[write--] = index1 >= 0 && nums1[index1] > nums2[index2] ? nums1[index1--] : nums2[index2--]
+  }
 }
 
 export { merge }
