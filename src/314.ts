@@ -2,6 +2,10 @@
  * 314. Binary Tree Vertical Order Traversal (Premium)
  * https://leetcode.com/problems/binary-tree-vertical-order-traversal
  * Medium
+ *
+ * Algorithm: BFS with column tracking
+ * Time Complexity: O(N + C) (usually O(N))
+ * Space Complexity: O(N)
  */
 
 class TreeNode {
