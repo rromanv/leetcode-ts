@@ -35,6 +35,29 @@ function findKthLargest(nums: number[], k: number): number {
   return minHeap.size() > 0 ? minHeap.peek()! : 0
 }
 
+function findKthLargest3(nums: number[], k: number): number {
+  const target = nums.length - k
+
+  const quickSelect = (left: number, right: number) => {
+    let pointer = left
+
+    for (let index = left; index < right; index++) {
+      if (nums[index] <= nums[right]) {
+        ;[nums[pointer], nums[index]] = [nums[index], nums[pointer]]
+        pointer++
+      }
+    }
+
+    ;[nums[pointer], nums[right]] = [nums[right], nums[pointer]]
+
+    if (pointer > target) return quickSelect(left, pointer - 1)
+    else if (pointer < target) return quickSelect(pointer + 1, right)
+    else return nums[pointer]
+  }
+
+  return quickSelect(0, nums.length - 1)
+}
+
 class MaxHeap<T> {
   private heap: T[]
   constructor(val: T[]) {
