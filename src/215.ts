@@ -5,11 +5,11 @@
  * Can you solve it without sorting?
  *
  * Algorithm: Max Heap
- * Time Complexity: O(N) for building heap, O(K log N) for K extractions
- * Space Complexity: O(N) for the heap array
+ * Time Complexity: O(N log K)
+ * Space Complexity: O(K)
  */
 
-function findKthLargest(nums: number[], k: number): number {
+function findKthLargest2(nums: number[], k: number): number {
   if (nums.length === 0) throw new Error('nums should have values')
   if (k > nums.length) throw new Error('k is bigger than nums length')
 
@@ -20,6 +20,19 @@ function findKthLargest(nums: number[], k: number): number {
   }
 
   return result
+}
+
+function findKthLargest(nums: number[], k: number): number {
+  const minHeap = new MinHeap<number>()
+  for (const num of nums) {
+    if (minHeap.size() < k) {
+      minHeap.insert(num)
+    } else if (num > minHeap.peek()!) {
+      minHeap.pop()
+      minHeap.insert(num)
+    }
+  }
+  return minHeap.size() > 0 ? minHeap.peek()! : 0
 }
 
 class MaxHeap<T> {
@@ -60,6 +73,74 @@ class MaxHeap<T> {
       this.heapDownFrom(0)
     }
     return max
+  }
+}
+
+class MinHeap<T> {
+  private heap: T[]
+  constructor() {
+    this.heap = []
+  }
+
+  /** Returns the number of elements in the heap */
+  size(): number {
+    return this.heap.length
+  }
+
+  /** Returns the minimum element without removing it */
+  peek(): T | undefined {
+    return this.heap[0]
+  }
+
+  /** Inserts a new element into the heap */
+  insert(value: T): void {
+    this.heap.push(value)
+    this.heapUp(this.heap.length - 1)
+  }
+
+  /** Removes and returns the minimum element from the heap */
+  pop(): T | undefined {
+    if (this.heap.length === 0) return undefined
+    const min = this.heap[0]
+    const last = this.heap.pop()
+    if (this.heap.length > 0 && last !== undefined) {
+      this.heap[0] = last
+      this.heapDown(0)
+    }
+    return min
+  }
+
+  /** Heapify up from a given index */
+  private heapUp(index: number): void {
+    while (index > 0) {
+      const parent = Math.floor((index - 1) / 2)
+      if (this.heap[index] < this.heap[parent]) {
+        ;[this.heap[index], this.heap[parent]] = [this.heap[parent], this.heap[index]]
+        index = parent
+      } else {
+        break
+      }
+    }
+  }
+
+  /** Heapify down from a given index */
+  private heapDown(index: number): void {
+    const length = this.heap.length
+    while (true) {
+      let smallest = index
+      const left = 2 * index + 1
+      const right = 2 * index + 2
+
+      if (left < length && this.heap[left] < this.heap[smallest]) smallest = left
+      if (right < length && this.heap[right] < this.heap[smallest]) smallest = right
+
+      if (smallest !== index) {
+        ;[this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]]
+        index = smallest
+      } else {
+        break
+      }
+    }
   }
 }
 
